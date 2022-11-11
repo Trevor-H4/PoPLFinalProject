@@ -5,7 +5,7 @@ start: (expr NEWLINE)* ;
 expr: expr ('*' | '/') expr
     | expr ('+' | '-') expr
     | INT 
-    | '(' expr ')'
+    | '(' expr ')' ;
 
 NEWLINE: [\n]+ ;
 
