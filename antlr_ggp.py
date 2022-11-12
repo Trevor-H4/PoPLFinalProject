@@ -8,7 +8,7 @@ def main(argv):
     lexer = GeniusGentlemenParsingLexer(input_stream)
     stream = CommonTokenStream(lexer)
     parser = GeniusGentlemenParsingParser(stream)
-    tree = parser.startRule()
+    tree = parser.start()
  
 if __name__ == '__main__':
     main(sys.argv)
