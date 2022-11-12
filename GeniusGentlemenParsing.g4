@@ -8,7 +8,7 @@ expr: expr ('*' | '/' | '%') expr
     | var
     | '(' expr ')' ;
 
-NEWLINE: [\n]+ ;
+NEWLINE: ([\n] | [\r]) ;
 
 INT    : [0-9]+ ;
 
