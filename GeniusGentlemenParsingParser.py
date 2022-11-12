@@ -10,22 +10,22 @@ else:
 
 def serializedATN():
     return [
-        4,1,16,49,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,1,0,1,0,1,0,1,0,3,0,13,
+        4,1,8,49,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,1,0,1,0,1,0,1,0,3,0,13,
         8,0,1,0,5,0,16,8,0,10,0,12,0,19,9,0,1,0,1,0,1,1,1,1,1,2,1,2,1,2,
-        1,2,1,2,1,2,1,2,3,2,32,8,2,1,2,1,2,1,2,1,2,1,2,1,2,5,2,40,8,2,10,
-        2,12,2,43,9,2,1,3,1,3,1,3,1,3,1,3,0,1,4,4,0,2,4,6,0,3,1,0,1,3,1,
-        0,4,5,1,0,8,12,51,0,17,1,0,0,0,2,22,1,0,0,0,4,31,1,0,0,0,6,44,1,
-        0,0,0,8,13,3,4,2,0,9,10,3,2,1,0,10,11,5,13,0,0,11,13,1,0,0,0,12,
-        8,1,0,0,0,12,9,1,0,0,0,13,16,1,0,0,0,14,16,5,13,0,0,15,12,1,0,0,
-        0,15,14,1,0,0,0,16,19,1,0,0,0,17,15,1,0,0,0,17,18,1,0,0,0,18,20,
-        1,0,0,0,19,17,1,0,0,0,20,21,5,0,0,1,21,1,1,0,0,0,22,23,3,6,3,0,23,
-        3,1,0,0,0,24,25,6,2,-1,0,25,32,5,14,0,0,26,32,5,16,0,0,27,28,5,6,
-        0,0,28,29,3,4,2,0,29,30,5,7,0,0,30,32,1,0,0,0,31,24,1,0,0,0,31,26,
-        1,0,0,0,31,27,1,0,0,0,32,41,1,0,0,0,33,34,10,5,0,0,34,35,7,0,0,0,
-        35,40,3,4,2,6,36,37,10,4,0,0,37,38,7,1,0,0,38,40,3,4,2,5,39,33,1,
-        0,0,0,39,36,1,0,0,0,40,43,1,0,0,0,41,39,1,0,0,0,41,42,1,0,0,0,42,
-        5,1,0,0,0,43,41,1,0,0,0,44,45,5,16,0,0,45,46,7,2,0,0,46,47,3,4,2,
-        0,47,7,1,0,0,0,6,12,15,17,31,39,41
+        1,2,1,2,1,2,1,2,3,2,32,8,2,1,2,1,2,1,2,5,2,37,8,2,10,2,12,2,40,9,
+        2,1,3,1,3,3,3,44,8,3,1,3,1,3,1,3,1,3,0,1,4,4,0,2,4,6,0,0,51,0,17,
+        1,0,0,0,2,22,1,0,0,0,4,31,1,0,0,0,6,41,1,0,0,0,8,13,3,4,2,0,9,10,
+        3,2,1,0,10,11,5,5,0,0,11,13,1,0,0,0,12,8,1,0,0,0,12,9,1,0,0,0,13,
+        16,1,0,0,0,14,16,5,5,0,0,15,12,1,0,0,0,15,14,1,0,0,0,16,19,1,0,0,
+        0,17,15,1,0,0,0,17,18,1,0,0,0,18,20,1,0,0,0,19,17,1,0,0,0,20,21,
+        5,0,0,1,21,1,1,0,0,0,22,23,3,6,3,0,23,3,1,0,0,0,24,25,6,2,-1,0,25,
+        32,5,6,0,0,26,32,5,8,0,0,27,28,5,1,0,0,28,29,3,4,2,0,29,30,5,2,0,
+        0,30,32,1,0,0,0,31,24,1,0,0,0,31,26,1,0,0,0,31,27,1,0,0,0,32,38,
+        1,0,0,0,33,34,10,4,0,0,34,35,5,4,0,0,35,37,3,4,2,5,36,33,1,0,0,0,
+        37,40,1,0,0,0,38,36,1,0,0,0,38,39,1,0,0,0,39,5,1,0,0,0,40,38,1,0,
+        0,0,41,43,5,8,0,0,42,44,5,4,0,0,43,42,1,0,0,0,43,44,1,0,0,0,44,45,
+        1,0,0,0,45,46,5,3,0,0,46,47,3,4,2,0,47,7,1,0,0,0,6,12,15,17,31,38,
+        43
     ]
 
 class GeniusGentlemenParsingParser ( Parser ):
@@ -38,13 +38,11 @@ class GeniusGentlemenParsingParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'*'", "'/'", "'%'", "'+'", "'-'", "'('", 
-                     "')'", "'='", "'+='", "'-='", "'*='", "'/='" ]
+    literalNames = [ "<INVALID>", "'('", "')'", "'='" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "NEWLINE", "INT", "CHARS", "VAR" ]
+                      "ARITHMETIC_OPERATOR", "NEWLINE", "INT", "CHARS", 
+                      "VAR" ]
 
     RULE_start = 0
     RULE_statement = 1
@@ -57,19 +55,11 @@ class GeniusGentlemenParsingParser ( Parser ):
     T__0=1
     T__1=2
     T__2=3
-    T__3=4
-    T__4=5
-    T__5=6
-    T__6=7
-    T__7=8
-    T__8=9
-    T__9=10
-    T__10=11
-    T__11=12
-    NEWLINE=13
-    INT=14
-    CHARS=15
-    VAR=16
+    ARITHMETIC_OPERATOR=4
+    NEWLINE=5
+    INT=6
+    CHARS=7
+    VAR=8
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -134,11 +124,11 @@ class GeniusGentlemenParsingParser ( Parser ):
             self.state = 17
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 90176) != 0:
+            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 354) != 0:
                 self.state = 15
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
-                if token in [6, 14, 16]:
+                if token in [1, 6, 8]:
                     self.state = 12
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,0,self._ctx)
@@ -156,7 +146,7 @@ class GeniusGentlemenParsingParser ( Parser ):
 
 
                     pass
-                elif token in [13]:
+                elif token in [5]:
                     self.state = 14
                     self.match(GeniusGentlemenParsingParser.NEWLINE)
                     pass
@@ -240,6 +230,9 @@ class GeniusGentlemenParsingParser ( Parser ):
                 return self.getTypedRuleContext(GeniusGentlemenParsingParser.ExprContext,i)
 
 
+        def ARITHMETIC_OPERATOR(self):
+            return self.getToken(GeniusGentlemenParsingParser.ARITHMETIC_OPERATOR, 0)
+
         def getRuleIndex(self):
             return GeniusGentlemenParsingParser.RULE_expr
 
@@ -260,83 +253,52 @@ class GeniusGentlemenParsingParser ( Parser ):
         _prevctx = localctx
         _startState = 4
         self.enterRecursionRule(localctx, 4, self.RULE_expr, _p)
-        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 31
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [14]:
+            if token in [6]:
                 self.state = 25
                 self.match(GeniusGentlemenParsingParser.INT)
                 pass
-            elif token in [16]:
+            elif token in [8]:
                 self.state = 26
                 self.match(GeniusGentlemenParsingParser.VAR)
                 pass
-            elif token in [6]:
+            elif token in [1]:
                 self.state = 27
-                self.match(GeniusGentlemenParsingParser.T__5)
+                self.match(GeniusGentlemenParsingParser.T__0)
                 self.state = 28
                 self.expr(0)
                 self.state = 29
-                self.match(GeniusGentlemenParsingParser.T__6)
+                self.match(GeniusGentlemenParsingParser.T__1)
                 pass
             else:
                 raise NoViableAltException(self)
 
             self._ctx.stop = self._input.LT(-1)
-            self.state = 41
+            self.state = 38
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input,5,self._ctx)
+            _alt = self._interp.adaptivePredict(self._input,4,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    self.state = 39
-                    self._errHandler.sync(self)
-                    la_ = self._interp.adaptivePredict(self._input,4,self._ctx)
-                    if la_ == 1:
-                        localctx = GeniusGentlemenParsingParser.ExprContext(self, _parentctx, _parentState)
-                        self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 33
-                        if not self.precpred(self._ctx, 5):
-                            from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 5)")
-                        self.state = 34
-                        _la = self._input.LA(1)
-                        if not(((_la) & ~0x3f) == 0 and ((1 << _la) & 14) != 0):
-                            self._errHandler.recoverInline(self)
-                        else:
-                            self._errHandler.reportMatch(self)
-                            self.consume()
-                        self.state = 35
-                        self.expr(6)
-                        pass
-
-                    elif la_ == 2:
-                        localctx = GeniusGentlemenParsingParser.ExprContext(self, _parentctx, _parentState)
-                        self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 36
-                        if not self.precpred(self._ctx, 4):
-                            from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 4)")
-                        self.state = 37
-                        _la = self._input.LA(1)
-                        if not(_la==4 or _la==5):
-                            self._errHandler.recoverInline(self)
-                        else:
-                            self._errHandler.reportMatch(self)
-                            self.consume()
-                        self.state = 38
-                        self.expr(5)
-                        pass
-
-             
-                self.state = 43
+                    localctx = GeniusGentlemenParsingParser.ExprContext(self, _parentctx, _parentState)
+                    self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
+                    self.state = 33
+                    if not self.precpred(self._ctx, 4):
+                        from antlr4.error.Errors import FailedPredicateException
+                        raise FailedPredicateException(self, "self.precpred(self._ctx, 4)")
+                    self.state = 34
+                    self.match(GeniusGentlemenParsingParser.ARITHMETIC_OPERATOR)
+                    self.state = 35
+                    self.expr(5) 
+                self.state = 40
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,5,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,4,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -361,6 +323,9 @@ class GeniusGentlemenParsingParser ( Parser ):
             return self.getTypedRuleContext(GeniusGentlemenParsingParser.ExprContext,0)
 
 
+        def ARITHMETIC_OPERATOR(self):
+            return self.getToken(GeniusGentlemenParsingParser.ARITHMETIC_OPERATOR, 0)
+
         def getRuleIndex(self):
             return GeniusGentlemenParsingParser.RULE_assign
 
@@ -382,15 +347,18 @@ class GeniusGentlemenParsingParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 44
+            self.state = 41
             self.match(GeniusGentlemenParsingParser.VAR)
-            self.state = 45
+            self.state = 43
+            self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if not(((_la) & ~0x3f) == 0 and ((1 << _la) & 7936) != 0):
-                self._errHandler.recoverInline(self)
-            else:
-                self._errHandler.reportMatch(self)
-                self.consume()
+            if _la==4:
+                self.state = 42
+                self.match(GeniusGentlemenParsingParser.ARITHMETIC_OPERATOR)
+
+
+            self.state = 45
+            self.match(GeniusGentlemenParsingParser.T__2)
             self.state = 46
             self.expr(0)
         except RecognitionException as re:
@@ -415,10 +383,6 @@ class GeniusGentlemenParsingParser ( Parser ):
 
     def expr_sempred(self, localctx:ExprContext, predIndex:int):
             if predIndex == 0:
-                return self.precpred(self._ctx, 5)
-         
-
-            if predIndex == 1:
                 return self.precpred(self._ctx, 4)
          
 
