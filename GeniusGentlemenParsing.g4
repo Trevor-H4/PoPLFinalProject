@@ -5,15 +5,17 @@ start: (expr NEWLINE)* ;
 expr: expr ('*' | '/' | '%') expr
     | expr ('+' | '-') expr
     | INT
-    | var
+    | VAR
+    | aSSIGN
     | '(' expr ')' ;
 
-NEWLINE: ([\n] | [\r]) ;
+NEWLINE: ([\n] | [\r\n]) ;
 
 INT    : [0-9]+ ;
 
 CHARS  : [a-z] | [A-Z] | [0-9] | '_' ;
 
-var    : ([a-z] | [A-Z] | '_') CHARS* ;
+VAR    : [a-z] | [A-Z] | '_' CHARS* ;
 
-ASSIGN : var ('=' | '+=' | '-=' | '*=' | '/=') expr;
+aSSIGN : VAR ('=' | '+=' | '-=' | '*=' | '/=') expr;
+
