@@ -6,7 +6,7 @@ expr: expr ('*' | '/' | '%') expr
     | expr ('+' | '-') expr
     | INT
     | VAR
-    | aSSIGN
+    | assign
     | '(' expr ')' ;
 
 NEWLINE: ([\n] | [\r\n]) ;
@@ -17,5 +17,5 @@ CHARS  : [a-z] | [A-Z] | [0-9] | '_' ;
 
 VAR    : [a-z] | [A-Z] | '_' CHARS* ;
 
-aSSIGN : VAR ('=' | '+=' | '-=' | '*=' | '/=') expr;
+assign : VAR ('=' | '+=' | '-=' | '*=' | '/=') expr;
 

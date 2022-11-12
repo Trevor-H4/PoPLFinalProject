@@ -1,4 +1,4 @@
-# Generated from GeniusGentlemenParsing.g4 by ANTLR 4.9.3
+# Generated from .\GeniusGentlemenParsing.g4 by ANTLR 4.11.1
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .GeniusGentlemenParsingParser import GeniusGentlemenParsingParser
@@ -23,6 +23,15 @@ class GeniusGentlemenParsingListener(ParseTreeListener):
 
     # Exit a parse tree produced by GeniusGentlemenParsingParser#expr.
     def exitExpr(self, ctx:GeniusGentlemenParsingParser.ExprContext):
+        pass
+
+
+    # Enter a parse tree produced by GeniusGentlemenParsingParser#assign.
+    def enterAssign(self, ctx:GeniusGentlemenParsingParser.AssignContext):
+        pass
+
+    # Exit a parse tree produced by GeniusGentlemenParsingParser#assign.
+    def exitAssign(self, ctx:GeniusGentlemenParsingParser.AssignContext):
         pass
 
 
