@@ -12,6 +12,6 @@ NEWLINE: [\n]+ ;
 
 INT    : [0-9]+ ;
 
-CHARS  : [a-z] | [A-Z] | [0-9] | '-' | '_'
+CHARS  : [a-z] | [A-Z] | [0-9] | '-' | '_' ;
 
 var    : ([a-z] | [A-Z]) CHARS* ;
