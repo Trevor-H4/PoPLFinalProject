@@ -19,4 +19,4 @@ INT    : [0-9]+ ;
 
 CHARS  : [a-z] | [A-Z] | [0-9] | '_' ;
 
-VAR    : CHARS+ ;
+VAR    : ([a-z] | [A-Z] | '_') CHARS* ;
