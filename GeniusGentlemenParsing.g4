@@ -13,10 +13,12 @@ assign : VAR ARITHMETIC_OPERATOR?'=' expr;
 
 ARITHMETIC_OPERATOR: ('+' | '-' | '*' | '/' | '%');
 
-NEWLINE: [\r]?[\n] ;
+NEWLINE: [\r]?[\n] ; 
 
 INT    : [0-9]+ ;
 
-CHARS  : [a-z] | [A-Z] | [0-9] | '_' ;
+LETTERS : [a-z] | [A-Z] ; 
 
-VAR    : ([a-z] | [A-Z] | '_') CHARS* ;
+CHARS  : LETTERS | [0-9] | '_' ;
+
+VAR    : ( LETTERS | '_') CHARS* ;

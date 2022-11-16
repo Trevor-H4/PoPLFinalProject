@@ -10,7 +10,7 @@ else:
 
 def serializedATN():
     return [
-        4,1,8,49,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,1,0,1,0,1,0,1,0,3,0,13,
+        4,1,9,49,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,1,0,1,0,1,0,1,0,3,0,13,
         8,0,1,0,5,0,16,8,0,10,0,12,0,19,9,0,1,0,1,0,1,1,1,1,1,2,1,2,1,2,
         1,2,1,2,1,2,1,2,3,2,32,8,2,1,2,1,2,1,2,5,2,37,8,2,10,2,12,2,40,9,
         2,1,3,1,3,3,3,44,8,3,1,3,1,3,1,3,1,3,0,1,4,4,0,2,4,6,0,0,51,0,17,
@@ -19,11 +19,11 @@ def serializedATN():
         16,1,0,0,0,14,16,5,5,0,0,15,12,1,0,0,0,15,14,1,0,0,0,16,19,1,0,0,
         0,17,15,1,0,0,0,17,18,1,0,0,0,18,20,1,0,0,0,19,17,1,0,0,0,20,21,
         5,0,0,1,21,1,1,0,0,0,22,23,3,6,3,0,23,3,1,0,0,0,24,25,6,2,-1,0,25,
-        32,5,6,0,0,26,32,5,8,0,0,27,28,5,1,0,0,28,29,3,4,2,0,29,30,5,2,0,
+        32,5,6,0,0,26,32,5,9,0,0,27,28,5,1,0,0,28,29,3,4,2,0,29,30,5,2,0,
         0,30,32,1,0,0,0,31,24,1,0,0,0,31,26,1,0,0,0,31,27,1,0,0,0,32,38,
         1,0,0,0,33,34,10,4,0,0,34,35,5,4,0,0,35,37,3,4,2,5,36,33,1,0,0,0,
         37,40,1,0,0,0,38,36,1,0,0,0,38,39,1,0,0,0,39,5,1,0,0,0,40,38,1,0,
-        0,0,41,43,5,8,0,0,42,44,5,4,0,0,43,42,1,0,0,0,43,44,1,0,0,0,44,45,
+        0,0,41,43,5,9,0,0,42,44,5,4,0,0,43,42,1,0,0,0,43,44,1,0,0,0,44,45,
         1,0,0,0,45,46,5,3,0,0,46,47,3,4,2,0,47,7,1,0,0,0,6,12,15,17,31,38,
         43
     ]
@@ -41,8 +41,8 @@ class GeniusGentlemenParsingParser ( Parser ):
     literalNames = [ "<INVALID>", "'('", "')'", "'='" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "ARITHMETIC_OPERATOR", "NEWLINE", "INT", "CHARS", 
-                      "VAR" ]
+                      "ARITHMETIC_OPERATOR", "NEWLINE", "INT", "LETTERS", 
+                      "CHARS", "VAR" ]
 
     RULE_start = 0
     RULE_statement = 1
@@ -58,8 +58,9 @@ class GeniusGentlemenParsingParser ( Parser ):
     ARITHMETIC_OPERATOR=4
     NEWLINE=5
     INT=6
-    CHARS=7
-    VAR=8
+    LETTERS=7
+    CHARS=8
+    VAR=9
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -124,11 +125,11 @@ class GeniusGentlemenParsingParser ( Parser ):
             self.state = 17
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 354) != 0:
+            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 610) != 0:
                 self.state = 15
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
-                if token in [1, 6, 8]:
+                if token in [1, 6, 9]:
                     self.state = 12
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,0,self._ctx)
@@ -262,7 +263,7 @@ class GeniusGentlemenParsingParser ( Parser ):
                 self.state = 25
                 self.match(GeniusGentlemenParsingParser.INT)
                 pass
-            elif token in [8]:
+            elif token in [9]:
                 self.state = 26
                 self.match(GeniusGentlemenParsingParser.VAR)
                 pass
