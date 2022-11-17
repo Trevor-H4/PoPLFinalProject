@@ -25,13 +25,13 @@ COLON : ':';
 
 WHITESPACE : ' '+;
 
-CONDIT : ('<' | '<=' | '>' | '>=' | '==' | '!=');
+CONDIT : ('<' | '>' | '=' | '!')'='?;
 
 ARITHMETIC_OPERATOR: ('+' | '-' | '*' | '/' | '%');
 
 NEWLINE: [\r]?[\n] ; 
 
-INT    : [0-9]+ ;
+INT    : '-'?[0-9]+ ;
 
 LETTERS : [a-z] | [A-Z] ; 
 
