@@ -2,7 +2,7 @@ grammar GeniusGentlemenParsing ;
 
 start: ((expr | statement NEWLINE) | NEWLINE)* EOF;
 
-statement : assign ;
+statement : (assign | ifstat);
 
 expr: expr ARITHMETIC_OPERATOR expr
     | INT
@@ -10,6 +10,22 @@ expr: expr ARITHMETIC_OPERATOR expr
     | '(' expr ')' ;
 
 assign : VAR ARITHMETIC_OPERATOR?'=' expr;
+
+ifstat : IF WHITESPACE expr WHITESPACE CONDIT WHITESPACE expr WHITESPACE COLON NEWLINE '\t' statement (EL ifstat | else)?;
+
+else : ELSE WHITESPACE? NEWLINE statement;
+
+IF : 'if';
+
+EL : 'el';
+
+ELSE : 'else:';
+
+COLON : ':';
+
+WHITESPACE : ' '+;
+
+CONDIT : ('<' | '<=' | '>' | '>=' | '==' | '!=');
 
 ARITHMETIC_OPERATOR: ('+' | '-' | '*' | '/' | '%');
 
