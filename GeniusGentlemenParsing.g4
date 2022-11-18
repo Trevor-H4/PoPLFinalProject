@@ -11,7 +11,9 @@ expr: expr WHITESPACE? ARITHMETIC_OPERATOR WHITESPACE? expr
     | VAR
     | TRUE | FALSE
     | '(' expr ')'
-    | expr WHITESPACE? CONDIT WHITESPACE? expr ;
+    | expr WHITESPACE? CONDIT WHITESPACE? expr 
+    | expr WHITESPACE ANDOR WHITESPACE expr
+    | 'not' WHITESPACE expr ;
 
 assign : VAR WHITESPACE? ARITHMETIC_OPERATOR?'=' WHITESPACE? expr;
 
@@ -20,6 +22,8 @@ ifstat : IF WHITESPACE expr WHITESPACE? COLON NEWLINE
          ((EL ifstat) | else)? ;
 
 else : ELSE WHITESPACE? NEWLINE statement;
+
+ANDOR   : ('and' | 'or') ;
 
 IF      : 'if';
 
