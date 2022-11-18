@@ -18,10 +18,11 @@ expr: expr WHITESPACE? ARITHMETIC_OPERATOR WHITESPACE? expr
 assign : VAR WHITESPACE? ARITHMETIC_OPERATOR?'=' WHITESPACE? expr;
 
 ifstat : IF WHITESPACE expr WHITESPACE? COLON NEWLINE
-         WHITESPACE (line+ | (PASS))
-         ((EL ifstat) | else)? ;
+         WHITESPACE (line+ | PASS)
+         (ifstat | else)? ;
 
-else : ELSE WHITESPACE? NEWLINE statement;
+else : ELSE WHITESPACE? COLON NEWLINE
+       WHITESPACE (line+ | PASS);
 
 ANDOR   : ('and' | 'or') ;
 
@@ -29,7 +30,7 @@ IF      : 'if';
 
 EL      : 'el';
 
-ELSE    : 'else:';
+ELSE    : 'else';
 
 TRUE    : 'True' ;
 
@@ -41,7 +42,7 @@ WHITESPACE : ('\t'|' ')+;
 
 PASS    : 'pass' ;
 
-CONDIT  : ('<' | '>' | '=' | '!')'='?;
+CONDIT  : (('<' | '>' | '=' | '!')'=') | '<' | '>' ;
 
 ARITHMETIC_OPERATOR : ('+' | '-' | '*' | '/' | '%');
 
@@ -55,4 +56,4 @@ DIGITS  : [0-9] ;
 
 CHARS   : LETTERS | DIGITS | '_' ;
 
-VAR     : ( LETTERS | '_') CHARS* ;
+VAR     : (LETTERS | '_') CHARS* ;

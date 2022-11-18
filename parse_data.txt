@@ -5,3 +5,17 @@ test2 = -33
 
 if True:
     pass
+
+if 5 < 3:
+    val = 2
+else:
+    otherval = 3
+
+if 6 > 2:
+    please = True
+if 6 > 2:
+    please = True
+else:
+    thank_you = False
+if 6 > 2:
+    please = True
