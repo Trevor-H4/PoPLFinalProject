@@ -1,40 +1,54 @@
 grammar GeniusGentlemenParsing ;
 
-start: ((expr | statement NEWLINE) | NEWLINE)* EOF;
+start: line* EOF;
+
+line : (expr | statement | WHITESPACE)? NEWLINE ;
 
 statement : (assign | ifstat);
 
-expr: expr ARITHMETIC_OPERATOR expr
+expr: expr WHITESPACE? ARITHMETIC_OPERATOR WHITESPACE? expr
     | INT
     | VAR
-    | '(' expr ')' ;
+    | TRUE | FALSE
+    | '(' expr ')'
+    | expr WHITESPACE? CONDIT WHITESPACE? expr ;
 
-assign : VAR ARITHMETIC_OPERATOR?'=' expr;
+assign : VAR WHITESPACE? ARITHMETIC_OPERATOR?'=' WHITESPACE? expr;
 
-ifstat : IF WHITESPACE expr WHITESPACE CONDIT WHITESPACE expr WHITESPACE COLON NEWLINE '\t' statement (EL ifstat | else)?;
+ifstat : IF WHITESPACE expr WHITESPACE? COLON NEWLINE
+         WHITESPACE (line+ | (PASS))
+         ((EL ifstat) | else)? ;
 
 else : ELSE WHITESPACE? NEWLINE statement;
 
-IF : 'if';
+IF      : 'if';
 
-EL : 'el';
+EL      : 'el';
 
-ELSE : 'else:';
+ELSE    : 'else:';
 
-COLON : ':';
+TRUE    : 'True' ;
 
-WHITESPACE : ' '+;
+FALSE   : 'False' ;
 
-CONDIT : ('<' | '>' | '=' | '!')'='?;
+COLON   : ':';
 
-ARITHMETIC_OPERATOR: ('+' | '-' | '*' | '/' | '%');
+WHITESPACE : ('\t'|' ')+;
 
-NEWLINE: [\r]?[\n] ; 
+PASS    : 'pass' ;
 
-INT    : '-'?[0-9]+ ;
+CONDIT  : ('<' | '>' | '=' | '!')'='?;
 
-LETTERS : [a-z] | [A-Z] ; 
+ARITHMETIC_OPERATOR : ('+' | '-' | '*' | '/' | '%');
 
-CHARS  : LETTERS | [0-9] | '_' ;
+NEWLINE : [\r]?[\n] ;
 
-VAR    : ( LETTERS | '_') CHARS* ;
+INT     : '-'?DIGITS+ ;
+
+LETTERS : [a-z] | [A-Z] ;
+
+DIGITS  : [0-9] ;
+
+CHARS   : LETTERS | DIGITS | '_' ;
+
+VAR     : ( LETTERS | '_') CHARS* ;

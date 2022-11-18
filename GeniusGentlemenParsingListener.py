@@ -1,4 +1,4 @@
-# Generated from GeniusGentlemenParsing.g4 by ANTLR 4.11.1
+# Generated from .\GeniusGentlemenParsing.g4 by ANTLR 4.11.1
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .GeniusGentlemenParsingParser import GeniusGentlemenParsingParser
@@ -14,6 +14,15 @@ class GeniusGentlemenParsingListener(ParseTreeListener):
 
     # Exit a parse tree produced by GeniusGentlemenParsingParser#start.
     def exitStart(self, ctx:GeniusGentlemenParsingParser.StartContext):
+        pass
+
+
+    # Enter a parse tree produced by GeniusGentlemenParsingParser#line.
+    def enterLine(self, ctx:GeniusGentlemenParsingParser.LineContext):
+        pass
+
+    # Exit a parse tree produced by GeniusGentlemenParsingParser#line.
+    def exitLine(self, ctx:GeniusGentlemenParsingParser.LineContext):
         pass
 
 
@@ -41,6 +50,24 @@ class GeniusGentlemenParsingListener(ParseTreeListener):
 
     # Exit a parse tree produced by GeniusGentlemenParsingParser#assign.
     def exitAssign(self, ctx:GeniusGentlemenParsingParser.AssignContext):
+        pass
+
+
+    # Enter a parse tree produced by GeniusGentlemenParsingParser#ifstat.
+    def enterIfstat(self, ctx:GeniusGentlemenParsingParser.IfstatContext):
+        pass
+
+    # Exit a parse tree produced by GeniusGentlemenParsingParser#ifstat.
+    def exitIfstat(self, ctx:GeniusGentlemenParsingParser.IfstatContext):
+        pass
+
+
+    # Enter a parse tree produced by GeniusGentlemenParsingParser#else.
+    def enterElse(self, ctx:GeniusGentlemenParsingParser.ElseContext):
+        pass
+
+    # Exit a parse tree produced by GeniusGentlemenParsingParser#else.
+    def exitElse(self, ctx:GeniusGentlemenParsingParser.ElseContext):
         pass
 
 
