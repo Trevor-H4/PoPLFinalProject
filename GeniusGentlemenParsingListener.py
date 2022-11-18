@@ -35,6 +35,15 @@ class GeniusGentlemenParsingListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by GeniusGentlemenParsingParser#structure.
+    def enterStructure(self, ctx:GeniusGentlemenParsingParser.StructureContext):
+        pass
+
+    # Exit a parse tree produced by GeniusGentlemenParsingParser#structure.
+    def exitStructure(self, ctx:GeniusGentlemenParsingParser.StructureContext):
+        pass
+
+
     # Enter a parse tree produced by GeniusGentlemenParsingParser#expr.
     def enterExpr(self, ctx:GeniusGentlemenParsingParser.ExprContext):
         pass

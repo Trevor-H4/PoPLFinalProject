@@ -2,9 +2,11 @@ grammar GeniusGentlemenParsing ;
 
 start: line* EOF;
 
-line : (expr | statement | WHITESPACE)? NEWLINE ;
+line : ((expr | statement | WHITESPACE | PASS)? NEWLINE) | structure ;
 
-statement : (assign | ifstat);
+statement : assign;
+
+structure : ifstat ;
 
 expr: expr WHITESPACE? ARITHMETIC_OPERATOR WHITESPACE? expr
     | INT
@@ -18,11 +20,11 @@ expr: expr WHITESPACE? ARITHMETIC_OPERATOR WHITESPACE? expr
 assign : VAR WHITESPACE? ARITHMETIC_OPERATOR?'=' WHITESPACE? expr;
 
 ifstat : IF WHITESPACE expr WHITESPACE? COLON NEWLINE
-         WHITESPACE (line+ | PASS)
-         (ifstat | else)? ;
+         (WHITESPACE line)+
+         else? ;
 
 else : ELSE WHITESPACE? COLON NEWLINE
-       WHITESPACE (line+ | PASS);
+       (WHITESPACE line)+ ;
 
 ANDOR   : ('and' | 'or') ;
 

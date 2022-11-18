@@ -12,10 +12,13 @@ else:
     otherval = 3
 
 if 6 > 2:
-    please = True
+    test1 = True
+
 if 6 > 2:
-    please = True
+    test2 = True
 else:
     thank_you = False
 if 6 > 2:
-    please = True
+    test3 = True
+if True:
+    pass
