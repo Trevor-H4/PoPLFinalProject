@@ -2,7 +2,7 @@ grammar GeniusGentlemenParsing ;
 
 start: line* EOF ;
 
-line : ((expr | statement | WHITESPACE | PASS)?  comment?  NEWLINE) | structure ;
+line : ((expr | statement | WHITESPACE | PASS)?  WHITESPACE? comment?  NEWLINE) | structure ;
 
 statement : assign ;
 
@@ -19,17 +19,17 @@ expr: expr WHITESPACE? ARITHMETIC_OPERATOR WHITESPACE? expr
 
 assign 	: VAR WHITESPACE? ARITHMETIC_OPERATOR?'=' WHITESPACE? expr ;
 
-ifstat 	: IF WHITESPACE expr WHITESPACE? COLON comment? NEWLINE
+ifstat 	: IF WHITESPACE expr WHITESPACE? COLON WHITESPACE? comment? NEWLINE
           (WHITESPACE line)+
           else? ;
 
-else 	: ELSE WHITESPACE? COLON comment? NEWLINE
+else 	: ELSE WHITESPACE? COLON WHITESPACE? comment? NEWLINE
        	  (WHITESPACE line)+ ;
 
-while 	: WHILE WHITESPACE expr WHITESPACE? COLON comment? NEWLINE
+while 	: WHILE WHITESPACE expr WHITESPACE? COLON WHITESPACE? comment? NEWLINE
 	  (WHITESPACE line)+ ;
 
-for	: FOR WHITESPACE VAR WHITESPACE IN WHITESPACE expr WHITESPACE? COLON comment? NEWLINE
+for	: FOR WHITESPACE VAR WHITESPACE IN WHITESPACE expr WHITESPACE? COLON WHITESPACE? comment? NEWLINE
 	  (WHITESPACE line)+ ;
 
 comment	: COMMENT ANYTHING ;
