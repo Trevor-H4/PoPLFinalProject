@@ -23,7 +23,7 @@ ifstat 	: IF WHITESPACE expr WHITESPACE? COLON comment? NEWLINE
           (WHITESPACE line)+
           else? ;
 
-else 	: ELSE WHITESPACE? COLON NEWLINE
+else 	: ELSE WHITESPACE? COLON comment? NEWLINE
        	  (WHITESPACE line)+ ;
 
 while 	: WHILE WHITESPACE expr WHITESPACE? COLON comment? NEWLINE
@@ -32,9 +32,9 @@ while 	: WHILE WHITESPACE expr WHITESPACE? COLON comment? NEWLINE
 for	: FOR WHITESPACE VAR WHITESPACE IN WHITESPACE expr WHITESPACE? COLON comment? NEWLINE
 	  (WHITESPACE line)+ ;
 
-comment	: COMMENT anything ;
+comment	: COMMENT ANYTHING ;
 
-anything: (CHARS | ' ')* ;
+ANYTHING: (. | WHITESPACE)* ;
 
 ANDOR   : ('and' | 'or') ;
 
