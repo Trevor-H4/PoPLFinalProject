@@ -1,10 +1,10 @@
 grammar GeniusGentlemenParsing ;
 
-start: line* EOF;
+start: line* EOF ;
 
 line : ((expr | statement | WHITESPACE | PASS)? NEWLINE) | structure ;
 
-statement : assign;
+statement : assign ;
 
 structure : ifstat ;
 
@@ -17,36 +17,50 @@ expr: expr WHITESPACE? ARITHMETIC_OPERATOR WHITESPACE? expr
     | expr WHITESPACE ANDOR WHITESPACE expr
     | 'not' WHITESPACE expr ;
 
-assign : VAR WHITESPACE? ARITHMETIC_OPERATOR?'=' WHITESPACE? expr;
+assign 	: VAR WHITESPACE? ARITHMETIC_OPERATOR?'=' WHITESPACE? expr ;
 
-ifstat : IF WHITESPACE expr WHITESPACE? COLON NEWLINE
-         (WHITESPACE line)+
-         else? ;
+ifstat 	: IF WHITESPACE expr WHITESPACE? COLON NEWLINE
+          (WHITESPACE line)+
+          else? ;
 
-else : ELSE WHITESPACE? COLON NEWLINE
-       (WHITESPACE line)+ ;
+else 	: ELSE WHITESPACE? COLON NEWLINE
+       	  (WHITESPACE line)+ ;
+
+while 	: WHILE WHITESPACE expr WHITESPACE? COLON NEWLINE
+	  (WHITESPACE line)+
+
+for	: FOR WHITESPACE VAR WHITESPACE IN WHITESPACE ( VAR | RANGE ) WHITESPACE? COLON NEWLINE
+	  (WHITESPACE line)+
 
 ANDOR   : ('and' | 'or') ;
 
-IF      : 'if';
+IF      : 'if' ;
 
-EL      : 'el';
+EL      : 'el' ;
 
-ELSE    : 'else';
+ELSE    : 'else' ;
+
+WHILE	: 'while' ;
+
+FOR	: 'for' ;
+
+IN	: 'in' ;
+
+RANGE	: 'Range(' ;
 
 TRUE    : 'True' ;
 
 FALSE   : 'False' ;
 
-COLON   : ':';
+COLON   : ':' ;
 
-WHITESPACE : ('\t'|' ')+;
+WHITESPACE : ('\t'|' ')+ ;
 
 PASS    : 'pass' ;
 
 CONDIT  : (('<' | '>' | '=' | '!')'=') | '<' | '>' ;
 
-ARITHMETIC_OPERATOR : ('+' | '-' | '*' | '/' | '%');
+ARITHMETIC_OPERATOR : ('+' | '-' | '*' | '/' | '%') ;
 
 NEWLINE : [\r]?[\n] ;
 
