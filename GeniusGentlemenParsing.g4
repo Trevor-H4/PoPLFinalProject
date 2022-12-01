@@ -27,10 +27,12 @@ else 	: ELSE WHITESPACE? COLON NEWLINE
        	  (WHITESPACE line)+ ;
 
 while 	: WHILE WHITESPACE expr WHITESPACE? COLON NEWLINE
-	  (WHITESPACE line)+
+	  (WHITESPACE line)+ ;
 
-for	: FOR WHITESPACE VAR WHITESPACE IN WHITESPACE ( VAR | RANGE ) WHITESPACE? COLON NEWLINE
-	  (WHITESPACE line)+
+for	: FOR WHITESPACE VAR WHITESPACE IN WHITESPACE expr WHITESPACE? COLON NEWLINE
+	  (WHITESPACE line)+ ;
+
+comment	: COMMENT ANYTHING ;
 
 ANDOR   : ('and' | 'or') ;
 
@@ -46,7 +48,9 @@ FOR	: 'for' ;
 
 IN	: 'in' ;
 
-RANGE	: 'Range(' ;
+COMMENT	: '#' ;
+
+ANYTHING: ;
 
 TRUE    : 'True' ;
 
