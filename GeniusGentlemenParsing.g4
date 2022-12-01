@@ -2,11 +2,11 @@ grammar GeniusGentlemenParsing ;
 
 start: line* EOF ;
 
-line : ((expr | statement | WHITESPACE | PASS)? NEWLINE) | structure ;
+line : ((expr | statement | WHITESPACE | PASS)?  comment?  NEWLINE) | structure ;
 
 statement : assign ;
 
-structure : ifstat ;
+structure : ifstat | while | for;
 
 expr: expr WHITESPACE? ARITHMETIC_OPERATOR WHITESPACE? expr
     | INT
@@ -19,20 +19,22 @@ expr: expr WHITESPACE? ARITHMETIC_OPERATOR WHITESPACE? expr
 
 assign 	: VAR WHITESPACE? ARITHMETIC_OPERATOR?'=' WHITESPACE? expr ;
 
-ifstat 	: IF WHITESPACE expr WHITESPACE? COLON NEWLINE
+ifstat 	: IF WHITESPACE expr WHITESPACE? COLON comment? NEWLINE
           (WHITESPACE line)+
           else? ;
 
 else 	: ELSE WHITESPACE? COLON NEWLINE
        	  (WHITESPACE line)+ ;
 
-while 	: WHILE WHITESPACE expr WHITESPACE? COLON NEWLINE
+while 	: WHILE WHITESPACE expr WHITESPACE? COLON comment? NEWLINE
 	  (WHITESPACE line)+ ;
 
-for	: FOR WHITESPACE VAR WHITESPACE IN WHITESPACE expr WHITESPACE? COLON NEWLINE
+for	: FOR WHITESPACE VAR WHITESPACE IN WHITESPACE expr WHITESPACE? COLON comment? NEWLINE
 	  (WHITESPACE line)+ ;
 
-comment	: COMMENT ANYTHING ;
+comment	: COMMENT anything ;
+
+anything: (CHARS | ' ')* ;
 
 ANDOR   : ('and' | 'or') ;
 
@@ -49,8 +51,6 @@ FOR	: 'for' ;
 IN	: 'in' ;
 
 COMMENT	: '#' ;
-
-ANYTHING: ;
 
 TRUE    : 'True' ;
 
