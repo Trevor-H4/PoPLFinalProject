@@ -22,3 +22,7 @@ if 6 > 2:
     test3 = True
 if True:
     pass
+while 5:
+    pass
+for test in 5:
+    pass
