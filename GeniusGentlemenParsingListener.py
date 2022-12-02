@@ -80,5 +80,32 @@ class GeniusGentlemenParsingListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by GeniusGentlemenParsingParser#while.
+    def enterWhile(self, ctx:GeniusGentlemenParsingParser.WhileContext):
+        pass
+
+    # Exit a parse tree produced by GeniusGentlemenParsingParser#while.
+    def exitWhile(self, ctx:GeniusGentlemenParsingParser.WhileContext):
+        pass
+
+
+    # Enter a parse tree produced by GeniusGentlemenParsingParser#for.
+    def enterFor(self, ctx:GeniusGentlemenParsingParser.ForContext):
+        pass
+
+    # Exit a parse tree produced by GeniusGentlemenParsingParser#for.
+    def exitFor(self, ctx:GeniusGentlemenParsingParser.ForContext):
+        pass
+
+
+    # Enter a parse tree produced by GeniusGentlemenParsingParser#comment.
+    def enterComment(self, ctx:GeniusGentlemenParsingParser.CommentContext):
+        pass
+
+    # Exit a parse tree produced by GeniusGentlemenParsingParser#comment.
+    def exitComment(self, ctx:GeniusGentlemenParsingParser.CommentContext):
+        pass
+
+
 
 del GeniusGentlemenParsingParser

@@ -2,7 +2,7 @@ grammar GeniusGentlemenParsing ;
 
 start: line* EOF ;
 
-line : ((expr | statement | WHITESPACE | PASS)?  WHITESPACE? comment?  NEWLINE) | structure ;
+line : ((expr | statement | WHITESPACE | PASS)? WHITESPACE? comment? NEWLINE) | structure ;
 
 statement : assign ;
 
@@ -32,9 +32,7 @@ while 	: WHILE WHITESPACE expr WHITESPACE? COLON WHITESPACE? comment? NEWLINE
 for	: FOR WHITESPACE VAR WHITESPACE IN WHITESPACE expr WHITESPACE? COLON WHITESPACE? comment? NEWLINE
 	  (WHITESPACE line)+ ;
 
-comment	: COMMENT ANYTHING ;
-
-ANYTHING: (. | WHITESPACE)* ;
+comment	: '#' (. | '?')*? ;
 
 ANDOR   : ('and' | 'or') ;
 
@@ -49,8 +47,6 @@ WHILE	: 'while' ;
 FOR	: 'for' ;
 
 IN	: 'in' ;
-
-COMMENT	: '#' ;
 
 TRUE    : 'True' ;
 
@@ -73,6 +69,9 @@ INT     : '-'?DIGITS+ ;
 LETTERS : [a-z] | [A-Z] ;
 
 DIGITS  : [0-9] ;
+
+SYMBOLS : ('#' | '`' | '~' | '!' | '@' | '$' | '%' | '^' | '&' | '*' | '(' | ')' | '_' | '-' | '+' | '=' | '{' |
+           '[' | ']' | '}' | '\\' | '|' | '\'' | '"' | ';' | ':' | ',' | '<' | '.' | '>' | '/' | '?');
 
 CHARS   : LETTERS | DIGITS | '_' ;
 
