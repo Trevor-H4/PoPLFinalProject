@@ -1,8 +1,10 @@
 grammar GeniusGentlemenParsing ;
 
-start: line* EOF ;
+start: (line | funcdec)* EOF ;
 
 line : ((expr | statement | WHITESPACE | PASS)? WHITESPACE? comment? NEWLINE) | structure ;
+
+funcdec : VAR '(' (VAR (','VAR)*)? ')' COLON NEWLINE (WHITESPACE line)+; 
 
 statement : assign ;
 
@@ -15,7 +17,8 @@ expr: expr WHITESPACE? ARITHMETIC_OPERATOR WHITESPACE? expr
     | '(' expr ')'
     | expr WHITESPACE? CONDIT WHITESPACE? expr 
     | expr WHITESPACE ANDOR WHITESPACE expr
-    | 'not' WHITESPACE expr ;
+    | 'not' WHITESPACE expr 
+    | VAR '(' (VAR (',' VAR)*)? ')';
 
 assign 	: VAR WHITESPACE? ARITHMETIC_OPERATOR?'=' WHITESPACE? expr ;
 
