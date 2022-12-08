@@ -4,11 +4,12 @@ start: (line | funcdec)* EOF ;
 
 line : ((expr | statement | WHITESPACE | PASS)? WHITESPACE? comment? NEWLINE) | structure ;
 
-funcdec : VAR '(' (VAR (','VAR)*)? ')' COLON NEWLINE (WHITESPACE line)+; 
+funcdec   : DEF WHITESPACE VAR WHITESPACE? '(' WHITESPACE? (VAR (WHITESPACE? ',' WHITESPACE? VAR)*)? WHITESPACE? ')' WHITESPACE? COLON WHITESPACE? comment? NEWLINE
+	    (WHITESPACE line)+ ;
 
 statement : assign ;
 
-structure : ifstat | while | for;
+structure : ifstat | while | for | funcdec ;
 
 expr: expr WHITESPACE? ARITHMETIC_OPERATOR WHITESPACE? expr
     | INT
@@ -18,7 +19,7 @@ expr: expr WHITESPACE? ARITHMETIC_OPERATOR WHITESPACE? expr
     | expr WHITESPACE? CONDIT WHITESPACE? expr 
     | expr WHITESPACE ANDOR WHITESPACE expr
     | 'not' WHITESPACE expr 
-    | VAR '(' (VAR (',' VAR)*)? ')';
+    | FUNCCALL ;
 
 assign 	: VAR WHITESPACE? ARITHMETIC_OPERATOR?'=' WHITESPACE? expr ;
 
@@ -36,6 +37,10 @@ for	: FOR WHITESPACE VAR WHITESPACE IN WHITESPACE expr WHITESPACE? COLON WHITESP
 	  (WHITESPACE line)+ ;
 
 comment	: '#' (. | '?')*? ;
+
+DEF	: 'def' ;
+
+FUNCCALL: VAR WHITESPACE? '(' WHITESPACE? (VAR (WHITESPACE? ',' WHITESPACE? VAR)*)? WHITESPACE? ')' ;
 
 ANDOR   : ('and' | 'or') ;
 

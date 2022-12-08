@@ -30,3 +30,10 @@ for test in 5:#troll comment primus
 
 # is it a weird comment? Yes, yes it is* (*subject to Kevin's whims)
 #`~!@#$%^&*()_-+={[]}\|'";:,<.>/?\|
+
+def my_func():
+    pass
+def   my_func2  (    var1,       var2)    :
+    pass
+
+(my_func()*5)
