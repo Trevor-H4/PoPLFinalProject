@@ -4,7 +4,7 @@ start: (line | funcdec)* EOF ;
 
 line : ((expr | statement | WHITESPACE | PASS)? WHITESPACE? comment? NEWLINE) | structure ;
 
-funcdec   : DEF WHITESPACE VAR WHITESPACE? '(' WHITESPACE? (VAR (WHITESPACE? ',' WHITESPACE? VAR)*)? WHITESPACE? ')' WHITESPACE? COLON WHITESPACE? comment? NEWLINE
+funcdec   : WHITESPACE? DEF WHITESPACE VAR WHITESPACE? '(' WHITESPACE? VAR? WHITESPACE? ( ',' WHITESPACE? VAR WHITESPACE?)* ')' WHITESPACE? COLON WHITESPACE? comment? NEWLINE
 	    (WHITESPACE line)+ ;
 
 statement : assign ;
