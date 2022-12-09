@@ -1,5 +1,6 @@
 def my_func():
     pass
+
 def   my_func2  (    var1,       var2)    :
     pass
 
