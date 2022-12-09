@@ -2,9 +2,6 @@ grammar GeniusGentlemenParsing ;
 
 start: (line)* EOF ;
 
-funcdec   : WHITESPACE? DEF WHITESPACE FUNCCALL WHITESPACE? COLON WHITESPACE? comment? NEWLINE
-	    (WHITESPACE line)+;
-
 line : ((expr | statement | WHITESPACE | PASS)? WHITESPACE? comment? NEWLINE) | structure;
 
 statement : assign ;
@@ -19,7 +16,7 @@ expr: expr WHITESPACE? ARITHMETIC_OPERATOR WHITESPACE? expr
     | expr WHITESPACE? CONDIT WHITESPACE? expr 
     | expr WHITESPACE ANDOR WHITESPACE expr
     | 'not' WHITESPACE expr 
-    | FUNCCALL ;
+    | funccall ;
 
 assign 	: VAR WHITESPACE? ARITHMETIC_OPERATOR?'=' WHITESPACE? expr ;
 
@@ -38,9 +35,14 @@ for	: FOR WHITESPACE VAR WHITESPACE IN WHITESPACE expr WHITESPACE? COLON WHITESP
 
 comment	: '#' (. | '?')*? ;
 
+funcdec   : WHITESPACE? DEF WHITESPACE FUNCDEF WHITESPACE? COLON WHITESPACE? comment? NEWLINE
+	    (WHITESPACE line)+;
+
+funccall: VAR WHITESPACE? '(' WHITESPACE? (expr (WHITESPACE? ',' WHITESPACE? expr)*)? WHITESPACE? ')' ;
+
 DEF	: 'def' ;
 
-FUNCCALL: VAR WHITESPACE? '(' WHITESPACE? (VAR (WHITESPACE? ',' WHITESPACE? VAR)*)? WHITESPACE? ')' ;
+FUNCDEF: VAR WHITESPACE? '(' WHITESPACE? (VAR (WHITESPACE? ',' WHITESPACE? VAR)*)? WHITESPACE? ')' ;
 
 ANDOR   : ('and' | 'or') ;
 
