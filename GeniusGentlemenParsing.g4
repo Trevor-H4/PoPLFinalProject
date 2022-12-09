@@ -1,10 +1,10 @@
 grammar GeniusGentlemenParsing ;
 
-start: (line | funcdec)* EOF ;
+start: (line)* EOF ;
 
 line : ((expr | statement | WHITESPACE | PASS)? WHITESPACE? comment? NEWLINE) | structure ;
 
-funcdec   : WHITESPACE? DEF WHITESPACE VAR WHITESPACE? '(' WHITESPACE? VAR? WHITESPACE? ( ',' WHITESPACE? VAR WHITESPACE?)* ')' WHITESPACE? COLON WHITESPACE? comment? NEWLINE
+funcdec   : WHITESPACE? DEF WHITESPACE VAR WHITESPACE? '(' WHITESPACE? (VAR WHITESPACE? ( ',' WHITESPACE? VAR WHITESPACE?)*)? ')' WHITESPACE? COLON WHITESPACE? comment? NEWLINE
 	    (WHITESPACE line)+ ;
 
 statement : assign ;
