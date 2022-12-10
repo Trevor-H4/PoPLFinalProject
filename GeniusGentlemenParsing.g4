@@ -16,7 +16,7 @@ expr: expr WHITESPACE? ARITHMETIC_OPERATOR WHITESPACE? expr
     | expr WHITESPACE? CONDIT WHITESPACE? expr 
     | expr WHITESPACE ANDOR WHITESPACE expr
     | 'not' WHITESPACE expr 
-    | funccall ;
+    | FUNCDEF | funccall ; 
 
 assign 	: VAR WHITESPACE? ARITHMETIC_OPERATOR?'=' WHITESPACE? expr ;
 
@@ -38,11 +38,13 @@ comment	: '#' (. | '?')*? ;
 funcdec   : WHITESPACE? DEF WHITESPACE FUNCDEF WHITESPACE? COLON WHITESPACE? comment? NEWLINE
 	    (WHITESPACE line)+;
 
-funccall: VAR WHITESPACE? '(' WHITESPACE? (expr (WHITESPACE? ',' WHITESPACE? expr)*)? WHITESPACE? ')' ;
-
 DEF	: 'def' ;
 
-FUNCDEF: VAR WHITESPACE? '(' WHITESPACE? (VAR (WHITESPACE? ',' WHITESPACE? VAR)*)? WHITESPACE? ')' ;
+funccall: VAR WHITESPACE? '(' params ')' ;
+
+params  : WHITESPACE? (expr (WHITESPACE? ',' WHITESPACE? expr)*)? WHITESPACE? ;
+
+FUNCDEF : VAR WHITESPACE? '(' WHITESPACE? (VAR (WHITESPACE? ',' WHITESPACE? VAR)*)? WHITESPACE? ')' ;
 
 ANDOR   : ('and' | 'or') ;
 
