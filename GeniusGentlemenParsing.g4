@@ -1,12 +1,12 @@
 grammar GeniusGentlemenParsing ;
 
-start: line* EOF ;
+start: (line)* EOF ;
 
-line : ((expr | statement | WHITESPACE | PASS)? WHITESPACE? comment? NEWLINE) | structure ;
+line : ((expr | statement | WHITESPACE | PASS)? WHITESPACE? comment? NEWLINE) | structure;
 
 statement : assign ;
 
-structure : ifstat | while | for;
+structure : ifstat | while | for | funcdec ;
 
 expr: expr WHITESPACE? ARITHMETIC_OPERATOR WHITESPACE? expr
     | INT
@@ -15,7 +15,8 @@ expr: expr WHITESPACE? ARITHMETIC_OPERATOR WHITESPACE? expr
     | '(' expr ')'
     | expr WHITESPACE? CONDIT WHITESPACE? expr 
     | expr WHITESPACE ANDOR WHITESPACE expr
-    | 'not' WHITESPACE expr ;
+    | 'not' WHITESPACE expr 
+    | funccall ; 
 
 assign 	: VAR WHITESPACE? ARITHMETIC_OPERATOR?'=' WHITESPACE? expr ;
 
@@ -33,6 +34,15 @@ for	: FOR WHITESPACE VAR WHITESPACE IN WHITESPACE expr WHITESPACE? COLON WHITESP
 	  (WHITESPACE line)+ ;
 
 comment	: '#' (. | '?')*? ;
+
+funcdec   : WHITESPACE? DEF WHITESPACE VAR WHITESPACE? '(' WHITESPACE? (VAR (WHITESPACE? ',' WHITESPACE? VAR)*)? WHITESPACE? ')' WHITESPACE? COLON WHITESPACE? comment? NEWLINE
+	    (WHITESPACE line)+;
+
+DEF	: 'def' ;
+
+funccall: VAR WHITESPACE? '(' params ')' ;
+
+params  : WHITESPACE? (expr (WHITESPACE? ',' WHITESPACE? expr)*)? WHITESPACE? ;
 
 ANDOR   : ('and' | 'or') ;
 

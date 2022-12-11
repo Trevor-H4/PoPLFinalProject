@@ -1,32 +1,8 @@
-(10*2/5)
-test=5
--3 + 4
-test2 = -33
-
-if True:
+def my_func():
     pass
 
-if 5 < 3:
-    val = 2 #Another comment
-#Wny is another comment the first comment?
-else:
-    otherval = 3#troll comment
-
-if 6 > 2:
-    test1 = True
-
-if 6 > 2: #troll comment
-    test2 = True
-else:#trollcomment
-    thank_you = False
-if 6 > 2:
-    test3 = True
-if True:
-    pass
-while 5:#trollcomment Prime
-    pass
-for test in 5:#troll comment primus
+def   my_func2  (    var1,       var2)    :
     pass
 
-# is it a weird comment? Yes, yes it is* (*subject to Kevin's whims)
-#`~!@#$%^&*()_-+={[]}\|'";:,<.>/?\|
+(my_func()*5)
+my_func(5, 5, 6, 5, 5, 7)
