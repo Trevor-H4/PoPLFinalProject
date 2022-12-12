@@ -1,2 +1,2 @@
 # PoPLFinalProject
-My group and I’s repository for the final project for Principles of Programming Languages by Ethan Marchbanks, John Wiseman, Kevin Zemon, and Trevor Hileman.
+This is a repository containing an Antlr parser for a Python-like language built by Ethan Marchbanks, John Wiseman, Kevin Zemon, and Trevor Hileman. The requirements for use of the parser are Python3 and Antlr ver 4.11. Once those are installed, running the line: antlr4 -Dlanguage=Python3 GeniusGentlemenParsing.g4 inside of the repository will create the parser using the .g4 file. Then running ~$python3 antlr_ggp.py [text file you want to parse] will parse your file into tokens if possible, thowing a syntax error otherwise.
