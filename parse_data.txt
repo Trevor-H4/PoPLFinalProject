@@ -1,8 +1,26 @@
-def my_func():
+# Demo
+
+# Deliverable 1
+(10*2/5)
+test=5
+
+# Deliverable 2
+if True:
+    pass
+if 5 < 3:
+    val = 2
+else:
+    otherval = 3
+
+# Deliverable 3
+while 5:#trollcomment Prime
+    pass
+for test in 5:#troll comment primus
     pass
 
-def   my_func2  (    var1,       var2)    :
+# Deliverable 4
+def my_func2 (var1,var2):
     pass
-
+    
 (my_func()*5)
 my_func(5, 5, 6, 5, 5, 7)
